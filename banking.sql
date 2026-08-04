@@ -131,3 +131,37 @@ add constraint pk_loans
 primary key (loanID);
 
 desc transactions;
+insert into customers
+(customerID,fristName,LastName,Email,Phone,DateOfBirth)
+values
+(101,'Rahul','Sharma','rahul@gmail.com','9876545310','1998-04-15');
+
+select * from customers;
+
+insert into accounts
+(AccountID,CustomerID,AccountType,Balance)
+values
+(201,101,'Savings',25000);
+
+select * from accounts;
+
+insert into customers
+values
+(102,'Ketan','Tiwari','ketan@gmail.com','8838938284','2026-08-05','2000-06-22');
+
+select * from customers;
+
+insert into customers
+(customerID,fristName,LastName,Email,Phone,AccountCreationDate,DateOfBirth)
+values
+(103,'Neha','Singh','neha@gmail.com','9277476727','2026-08-03','1992-07-03'),
+(104,'Mukul','Jha','mukul@gmail.com','7929267534','2025-02-01','1995-11-06');
+
+select * from customers;
+
+UPDATE customers 
+SET 
+    AccountCreationDate = '2025-06-29'
+WHERE
+    customerID = 101;
+
