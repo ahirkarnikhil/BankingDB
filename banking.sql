@@ -164,4 +164,98 @@ SET
     AccountCreationDate = '2025-06-29'
 WHERE
     customerID = 101;
+    
+    insert into branches
+    values
+    ('1','Nagpur Branch','subhash nagar,nagpur,maharashtra','9876543210'),
+	('2','chandrapur Branch','wadgaon,chandrapur,maharashtra','9876895654'),
+	('3','warora Branch','warora,chandrapur,maharashtra','9863321245');
+    
+    select * from branches;
+    
+    insert into loans
+    values
+    ('1','300000','12','2023-08-21','2025-08-21','101'),
+    ('2','200000','12','2022-07-11','2024-07-11','102'),
+    ('3','500000','12','2021-06-01','2023-06-01','103'),
+    ('4','400000','12','2022-07-15','2024-07-15','104'),
+    ('5','100000','12','2025-08-21','2026-08-21','105');
+    
+    
+insert into customers
+values
+('105','Aman','Rane','aman@gmail.com','9938938284','2026-07-05','2000-02-12');
+    
+    select * from loans;
+    select * from accounts;
+    
+	insert into transactions
+    values
+    ('1','2026-06-06','25000','Deposit','201'),
+    ('2','2025-07-16','35000','Deposit','202'),
+    ('3','2026-05-18','22000','Withdrawal','203'),
+    ('4','2026-03-22','32200','payment','204'),
+    ('5','2026-02-17','2500','interest','205');
 
+ UPDATE accounts
+SET 
+   branchID  = '1'
+WHERE
+    accountID = 201;
+    
+    insert into accounts
+    values
+    ('202','savings','58000','102','2'),
+    ('203','savings','52000','103','3'),
+    ('204','savings','80000','104','2'),
+    ('205','savings','20000','105','1');
+
+select * from transactions;
+select * from accounts;
+
+update accounts
+set
+balance = '30000'
+where
+customerID = 101 ;
+
+update accounts
+set
+balance = balance+2000
+where
+customerID = 102 ;
+
+
+select
+customerID,fristname,lastname,phone
+from
+customers;
+
+
+select *
+ from
+ accounts
+ where
+ AccountType = 'savings';
+ 
+ select *
+ from
+ accounts
+ where
+ balance < 30000;
+ 
+ select *
+ from
+ accounts
+ where
+ AccountType <> 'savings';
+ 
+ select *
+ from
+ accounts
+ where
+ AccountType = 'savings'
+ and
+ Balance >30000;
+ 
+ 
