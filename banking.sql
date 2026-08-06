@@ -258,4 +258,70 @@ select *
  and
  Balance >30000;
  
+ select *
+ from
+ customers
+ where
+ AccountCreationDate  > '2026-07-01';
  
+
+ 
+ 
+select * from customers;
+
+select * from
+customers
+where Phone in ('9876545310','8838938284','9277476727');
+
+select * from
+customers
+where Phone ='9876545310'or Phone ='8838938284'or Phone ='9277476727';
+
+select CustomerID,AccountType,Balance
+ from
+accounts
+where Balance between 20000 and 60000;
+
+select CustomerID,AccountType,Balance
+ from
+accounts
+where Balance  >= 20000 and  Balance  <= 60000;
+
+select * from 
+customers
+where FristName like 'a%';
+
+
+select * from 
+customers
+where LastName like '%a';
+
+select * from 
+customers
+where LastName like'____';
+
+select balance
+from accounts
+order by Balance;
+
+select customerID,balance
+from accounts
+order by Balance;
+
+select branchID, branchname
+from branches
+order by BranchName ;
+
+select customerID,balance
+from accounts
+order by  Balance  desc;
+
+select accounttype,balance
+from accounts
+order by AccountType desc,Balance desc;
+
+select distinct accounttype ,AccountID
+ from accounts;
+ 
+ select distinct transactionID ,AccountID
+ from transactions;
