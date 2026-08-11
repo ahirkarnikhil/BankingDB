@@ -325,3 +325,91 @@ select distinct accounttype ,AccountID
  
  select distinct transactionID ,AccountID
  from transactions;
+ 
+ select* from customers
+ limit 2 offset 2 ;
+ 
+ SELECT 
+    *
+FROM
+    accounts
+ORDER BY Balance DESC
+LIMIT 2 , 1;
+
+
+
+DELETE FROM customers
+WHERE customerid IN (106, 107, 108);
+
+select* from customers;
+select* from accounts;
+
+insert into customers
+(customerID,fristName,LastName,Email,Phone,AccountCreationDate,DateOfBirth)
+values
+(106,'Nehal','rane','nehal@gmail.com',Null,'2026-08-25','1992-08-03'),
+(107,'Mukta','more','mukta@gmail.com',null,'2025-02-10','1995-12-06'),
+(108,'Nikita','das','nikita@gmail.com',null,'2026-08-23','1992-04-03');
+
+insert into accounts
+values
+('206','current','200000','106','3'),
+('207','current','20000','107','2'),
+('208','current','100000','108','1');
+
+insert into transactions
+    values
+    ('6','2026-07-06','2500','Deposit','206'),
+    ('7','2025-08-16','350000','Deposit','207'),
+    ('8','2026-06-18','220000','Withdrawal','208'),
+    ('9','2026-05-22','3220','payment','201'),
+    ('10','2026-02-17','25000','interest','204');
+
+select 
+accountID,
+balance,
+accountType,
+case
+when balance <= 40000 then "lowbalance"
+when balance >40000 then "midbalance"
+else "highbalance"
+end as category
+from accounts;
+
+-- categorize the deposite in the tranactions table as per conditions givan
+-- if above 10000 (included) high amount
+-- if 5000(included) to 10000 medium amount
+-- if upto 5000 low amount
+-- for tarnsaction type withdrowal "not applicable"
+
+
+
+ select* from transactions;
+ 
+ select 
+TransactionID ,
+TransactionDate ,
+Amount ,
+TransactionType ,
+accountID,
+case
+when  transactiontype = "deposit" and amount >=10000 then " high amount"
+when  transactiontype = "deposit" and amount >=5000 then "medium amount"
+when  transactiontype = "deposit" and amount <5000 then "low amount"
+else "not applicable"
+end as catogory
+from transactions;
+
+
+select CustomerID,upper( fristname),upper( lastname) from customers; -- UPPER CONVERT THE CHARECTER IN UPPER CASE IN OUT PUT ONLY
+select CustomerID,lower( fristname),LOWER( lastname) from customers; -- LOWER CONVERT THE CHARECTER IN LOWER CASE IN OUT PUT ONLY
+
+select CustomerID,length( fristname),length( lastname) from customers; -- LENGTH FUNCTION ( GIVES THE BITE COUNT) IN OUT PUT ONLY
+select CustomerID, char_length( fristname),char_length( lastname) from customers; -- CHAR LENGTH FUNCTION ( GIVES THE CHARECTER COUNT) IN OUT PUT ONLY
+
+select concat(FRISTNAME," ",LASTNAME) AS FULLNAME, PHONE, EMAIL FROM customers; -- COMBAIN TWO OR MORE COUMN AND MAKE A NEW COLMUN
+
+select  CUSTOMERID, CONCAT(SUBSTRING(FRISTNAME,1,1),".", LASTNAME) AS FULLNAME,PHONE,EMAIL FROM CUSTOMERS;
+
+
+
