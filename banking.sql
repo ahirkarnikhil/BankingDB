@@ -400,6 +400,7 @@ else "not applicable"
 end as catogory
 from transactions;
 
+-- 11/08/2026 (date) 
 
 select CustomerID,upper( fristname),upper( lastname) from customers; -- UPPER CONVERT THE CHARECTER IN UPPER CASE IN OUT PUT ONLY
 select CustomerID,lower( fristname),LOWER( lastname) from customers; -- LOWER CONVERT THE CHARECTER IN LOWER CASE IN OUT PUT ONLY
@@ -412,4 +413,74 @@ select concat(FRISTNAME," ",LASTNAME) AS FULLNAME, PHONE, EMAIL FROM customers; 
 select  CUSTOMERID, CONCAT(SUBSTRING(FRISTNAME,1,1),".", LASTNAME) AS FULLNAME,PHONE,EMAIL FROM CUSTOMERS;
 
 
+-- 12/08/2026 (date)
 
+select length("  hello world  ");
+
+select length( trim("  hello world  "));
+
+select length (trim(substring("hello world",6)));
+
+select replace("mat", "m","c");
+
+-- numaric functions 
+
+select avg(balance) from accounts
+where AccountType = "savings";
+
+select ceil(avg(balance)) from accounts
+where AccountType = "savings";
+
+select floor(avg(balance)) from accounts
+where AccountType = "savings";
+
+select floor(avg(balance)) from accounts
+where AccountType = "current";
+
+select*from transactions;
+
+select avg (amount) from transactions where
+TransactionType = "deposit";
+
+-- absolute () function
+select abs(-521655);
+
+-- mod  function (gives remender)
+select mod (4,3);
+
+-- power function (gives power)
+select power(2,3);
+
+ -- sqrt function
+
+select sqrt(16);
+
+-- DATE FUNCTIONS(..........................)
+-- NOW FUNCTION
+SELECT now();
+select curdate();
+select curtime();
+
+-- YEAR() MONTH() DAY()
+select DateOfBirth, year( DATEOFBIRTH),MONTH( DATEOFBIRTH),DAY( DATEOFBIRTH)
+FROM customers;
+
+-- DATEDIFF FUNNCTION
+SELECT 
+    CONCAT(FRISTNAME, ' ', LASTNAME) AS FULLNAME,
+    DATEOFBIRTH,
+    FLOOR(DATEDIFF(CURDATE(), DATEOFBIRTH) / 365) AS AGE
+FROM
+    customers;
+    
+    -- DATE_ADD()
+    
+    SELECT 
+    CONCAT(FRISTNAME, ' ', LASTNAME) AS FULLNAME,
+    AccountCreationDate,
+    DATE_ADD(ACCOUNTCREATIONDATE,
+        INTERVAL 1 YEAR) AS KYCRENEWAL
+FROM
+    customers;
+    
+    
