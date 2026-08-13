@@ -483,4 +483,64 @@ FROM
 FROM
     customers;
     
+    -- 13/08/2026 (...........................)
     
+    -- date_sub
+    
+select
+ date_sub(curdate(),interval 7 day);
+    
+    
+    -- count() function 
+    
+    select count(*) as totalcustomers from customers;
+    
+    select count(phone) as totalcustomers from customers;
+    
+    -- sum() function
+    
+    select sum(balance) from accounts;
+    
+    select sum(balance) from accounts
+    where AccountType = "savings"; --   ( where use)
+    
+    select sum(balance)as savingsbalance from accounts
+    where  AccountType = "current"  ;
+   
+   
+   -- -- ---- Avg () function ----------
+    select avg(amount) from transactions
+    where TransactionType = "deposit";
+    
+    select avg(amount)from transactions
+    where TransactionType = "Withdrawal";
+    
+    select * from transactions;
+    
+    -- ---- max () and min () function
+    -- find customer having max balancein saving accounts
+    
+    select max(balance)from accounts
+    where Accounttype = "savings";
+    
+     select min(balance)from accounts
+    where Accounttype = "savings";
+    
+    select * FROM accounts;
+    
+   -- ------ group by -----------
+   select transactiontype,sum(amount) from transactions
+   group by (TransactionType);
+   
+    select * from accounts;
+    
+    select accounttype,count(*) as total_accounts,
+    sum(balance)as total_balance ,
+    avg(balance) as avg_balance
+    from accounts
+    group by AccountType;
+
+  select  branchID,AccountType ,count(accounttype) as total_branch
+  from accounts
+group by branchID,AccountType
+order by branchID;  
